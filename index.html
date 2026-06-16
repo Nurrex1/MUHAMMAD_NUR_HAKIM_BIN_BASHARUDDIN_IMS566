@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Assignmo - Single Page App Portal</title>
+    <!-- Custom Google Fonts and FontAwesome Layout Setup -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    <!-- ==================== AUTHENTICATION WRAPPER ==================== -->
+    <div id="auth-container" class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image" id="auth-side-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    
+                                    <!-- LOGIN SCREEN VIEW -->
+                                    <div id="view-login" class="auth-view">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        </div>
+                                        <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                                            Invalid email or password. Please try again.
+                                        </div>
+                                        <form class="user" id="loginForm">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" id="loginEmail" placeholder="Enter Email Address..." required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user" id="loginPassword" placeholder="Password" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                    <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                            <hr>
+                                            <button type="button" class="btn btn-google btn-user btn-block data-bypass-login"><i class="fab fa-google fa-fw"></i> Login with Google</button>
+                                            <button type="button" class="btn btn-facebook btn-user btn-block data-bypass-login"><i class="fab fa-facebook-f fa-fw"></i> Login with Facebook</button>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center"><a class="small switch-auth-trigger" data-target="view-forgot" href="#">Forgot Password?</a></div>
+                                        <div class="text-center"><a class="small switch-auth-trigger" data-target="view-register" href="#">Create an Account!</a></div>
+                                        <div class="text-center mt-4"><span class="text-xs text-gray-500">Admin Account: admin@example.com / password123</span></div>
+                                    </div>
+
+                                    <!-- REGISTER SCREEN VIEW -->
+                                    <div id="view-register" class="auth-view d-none">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                        </div>
+                                        <form class="user" id="registerForm">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" placeholder="First Name" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control form-control-user" placeholder="Last Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" placeholder="Email Address" required>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="password" class="form-control form-control-user" placeholder="Password" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control form-control-user" placeholder="Repeat Password" required>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center"><a class="small switch-auth-trigger" data-target="view-forgot" href="#">Forgot Password?</a></div>
+                                        <div class="text-center"><a class="small switch-auth-trigger" data-target="view-login" href="#">Already have an account? Login!</a></div>
+                                    </div>
+
+                                    <!-- FORGOT PASSWORD SCREEN VIEW -->
+                                    <div id="view-forgot" class="auth-view d-none">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
+                                            <p class="mb-4 text-sm text-gray-600">We get it, stuff happens. Just enter your email address below and we'll send you a link to reset your password!</p>
+                                        </div>
+                                        <form class="user" id="forgotForm">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-user" placeholder="Enter Email Address..." required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">Reset Password</button>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center"><a class="small switch-auth-trigger" data-target="view-register" href="#">Create an Account!</a></div>
+                                        <div class="text-center"><a class="small switch-auth-trigger" data-target="view-login" href="#">Already have an account? Login!</a></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN APPLICATION CORE WRAPPER ==================== -->
+    <div id="wrapper" class="d-none app-container-layout">
+        
+        <!-- HIGH-VISIBILITY TOP HEADER STICKY NAVIGATION BAR -->
+        <header class="app-header-nav bg-gradient-primary shadow">
+            <div class="header-inner-content">
+                <a class="header-brand nav-view-btn" href="#" data-view="dashboard">
+                    <i class="grid-template-row: 1fr;"></i><span>Assignmo</span>
+                </a>
+                
+                <!-- Central High-Visibility Segmented Navbar Controls -->
+                <nav class="header-center-tabs">
+                    <button class="tab-link active" data-nav="dashboard" data-view="dashboard">
+                        <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
+                    </button>
+                    <button class="tab-link" data-nav="charts" data-view="charts">
+                        <i class="fas fa-chart-area mr-1"></i> Charts
+                    </button>
+                    <button class="tab-link" data-nav="tables" data-view="tables">
+                        <i class="fas fa-table mr-1"></i> Tables
+                    </button>
+                </nav>
+>
+
+                <!-- Right Utility Notification Badges & Profiles -->
+                <div class="header-right-menu">
+                    <div class="topbar-badge mr-3">
+                        <i class="fas fa-bell"></i><span class="counter-badge">3+</span>
+                    </div>
+                    <div class="topbar-badge mr-4">
+                        <i class="fas fa-envelope"></i><span class="counter-badge">7</span>
+                    </div>
+                    <div class="user-profile-anchor" id="userMenuDropdown">
+                        <span class="profile-name d-none d-lg-inline" id="profileUserName">Douglas McGee</span>
+                        <div class="profile-avatar"><i class="fas fa-user-circle"></i></div>
+                        
+                        <div class="dropdown-menu dropdown-menu-right shadow dynamic-dropdown d-none" id="userDropdownContent">
+                            <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" id="logoutButtonTrigger"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area Container -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+
+                <!-- ==================== DYNAMIC APP VIEWS CONTEXT VIEWPORT ==================== -->
+                <div class="container-fluid space-dynamic-views" id="app-views-viewport">
+                    
+                    <!-- WORKSPACE MODULE 1: DASHBOARD PANELS[cite: 2] -->
+                    <div id="app-view-dashboard" class="main-workspace-view">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        </div>
+                        
+                        <!-- Summary Structural Badges Matrix[cite: 2] -->
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Assignments</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Finished Assignments</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">6</div>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto"><div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">66%</div></div>
+                                                    <div class="col">
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" style="width: 66%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Assignments</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                                            </div>
+                                            <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Embedded Donut Status Block Layout[cite: 2] -->
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-4 d-flex align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Assignment Status Overview</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-pie-container">
+                                            <canvas id="dashboardPieChart"></canvas>
+                                        </div>
+                                        <div class="mt-4 text-center small">
+                                            <span class="mr-2"><i class="fas fa-circle text-primary"></i> Assignments to Submit</span>
+                                            <span class="mr-2"><i class="fas fa-circle text-info"></i> Assignment Submitted</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WORKSPACE MODULE 2: CHARTS ANALYTICS VIEW[cite: 1] -->
+                    <div id="app-view-charts" class="main-workspace-view d-none">
+                        <h1 class="h3 mb-2 text-gray-800">Assignment Charts</h1>
+                        <p class="mb-4 text-sm text-gray-600">Visual operational graphs tracking submission quotas across individual course categories.</p>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Donut Chart Breakout</h6></div>
+                                    <div class="card-body">
+                                        <div class="chart-pie-container"><canvas id="analyticsPieChart"></canvas></div>
+                                        <div class="mt-4 text-center small">
+                                            <span class="mr-2"><i class="fas fa-circle text-primary"></i> Assignments to Submit</span>
+                                            <span class="mr-2"><i class="fas fa-circle text-info"></i> Assignment Submitted</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary">Course Submissions Bar Chart</h6></div>
+                                    <div class="card-body">
+                                        <div class="chart-bar-container"><canvas id="analyticsBarChart"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WORKSPACE MODULE 3: TABLES SYSTEM RECORDS VIEW[cite: 9] -->
+                    <div id="app-view-tables" class="main-workspace-view d-none">
+                        <h1 class="h3 mb-2 text-gray-800">Assignments Detailed Tracking</h1>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold text-primary">Assignment Tracking Status</h6>
+                                <input type="text" id="tableFilterInput" class="form-control form-control-sm table-search-box" placeholder="Quick filter rows...">
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="assignmentTrackingTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Assignment Name</th>
+                                                <th>Course Code</th>
+                                                <th>Submission Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Database Design Project</td>
+                                                <td>CS301</td>
+                                                <td>2026-03-15</td>
+                                                <td><span class="badge badge-success">Submitted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>UI/UX Wireframing Case Study</td>
+                                                <td>DM104</td>
+                                                <td>2026-04-02</td>
+                                                <td><span class="badge badge-success">Submitted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Algorithms Analysis Lab 3</td>
+                                                <td>CS204</td>
+                                                <td>2026-05-20</td>
+                                                <td><span class="badge badge-success">Submitted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data Structures and Algorithms</td>
+                                                <td>CS302</td>
+                                                <td>2026-06-18</td>
+                                                <td><span class="badge badge-success">Submitted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Electronics Fundamentals</td>
+                                                <td>EE201</td>
+                                                <td>2026-06-18</td>
+                                                <td><span class="badge badge-success">Submitted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Calculus II</td>
+                                                <td>MA202</td>
+                                                <td>2026-06-18</td>
+                                                <td><span class="badge badge-success">Submitted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Machine Learning Model Tuning</td>
+                                                <td>AI402</td>
+                                                <td>2026-06-18</td>
+                                                <td><span class="badge badge-primary">In Progress</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ethics and Social Responsibility</td>
+                                                <td>ESR223</td>
+                                                <td>2026-06-18</td>
+                                                <td><span class="badge badge-primary">In Progress</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Context Footer Block -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Created by Muhammad Nur Hakim 2026</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Core Scroll To Top Link Component -->
+    <a class="scroll-to-top rounded" id="scrollToTopBtn" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+    <!-- Unified Native Logout Modal Overlay Context Container -->
+    <div class="custom-modal-overlay d-none" id="logoutModalOverlay">
+        <div class="custom-modal-box">
+            <div class="custom-modal-header">
+                <h5>Ready to Leave?</h5>
+                <button class="modal-close-x" id="modalCloseXBtn">&times;</button>
+            </div>
+            <div class="custom-modal-body">Select "Logout" below if you are ready to end your current dashboard session.</div>
+            <div class="custom-modal-footer">
+                <button class="btn btn-secondary" id="modalCancelBtn">Cancel</button>
+                <button class="btn btn-primary" id="modalConfirmLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- High-Performance Graph Engine Component Dependency -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
